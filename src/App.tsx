@@ -18,7 +18,13 @@ function App() {
     transRef.start();
   }, [index, transRef]);
 
-  const colors: string = ["red", "red", "red"];
+  const colors: string[] = ["red", "red", "red"];
+
+  /*
+
+
+
+  */
   return (
     <>
       <div id="wrapper" className="h-screen w-screen" onClick={onClick}>

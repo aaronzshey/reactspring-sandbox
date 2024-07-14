@@ -1,7 +1,11 @@
 import React, { CSSProperties } from "react";
 import { animated, AnimatedProps } from "@react-spring/web";
 export default function Page(
-  props: AnimatedProps<{ style: CSSProperties; color: string }>,
+  props: AnimatedProps<{
+    style: CSSProperties;
+    color: string;
+    children: string;
+  }>,
 ) {
   return (
     <animated.div
