@@ -8,6 +8,8 @@ import {
 } from "@react-spring/web";
 import Page from "../components/Page";
 
+const AnimatedPage = animated(Page);
+
 function App() {
   const [index, set] = useState(0);
   const onClick = () => set((state) => (state + 1) % 3);
@@ -26,17 +28,23 @@ function App() {
   const pages: ((
     props: AnimatedProps<{ style: CSSProperties }>,
   ) => React.ReactElement)[] = [
-    ({ style }) => <Page style={{ ...style, background: "lightpink" }}></Page>,
-    ({ style }) => <Page style={{ ...style, background: "lightblue" }}></Page>,
-    ({ style }) => <Page style={{ ...style, background: "lightgreen" }}></Page>,
+    ({ style }) => (
+      <AnimatedPage style={{ ...style, background: "lightpink" }} />
+    ),
+    ({ style }) => (
+      <AnimatedPage style={{ ...style, background: "lightblue" }} />
+    ),
+    ({ style }) => (
+      <AnimatedPage style={{ ...style, background: "lightgreen" }} />
+    ),
   ];
 
   return (
     <>
       <div id="wrapper" className="h-screen w-screen" onClick={onClick}>
         {transitions((style, i) => {
-          const Page = pages[i];
-          return <Page style={style} />;
+          const A = pages[i];
+          return <A style={style} />;
         })}
       </div>
     </>
