@@ -1,5 +1,14 @@
-import React from "react";
-
-export default function Page() {
-  return <div className="bg-blue-500">ASDF</div>;
+import React, { CSSProperties } from "react";
+import { animated, AnimatedProps } from "@react-spring/web";
+export default function Page(
+  props: AnimatedProps<{ style: CSSProperties; color: string }>,
+) {
+  return (
+    <animated.div
+      className="w-screen h-screen"
+      style={{ ...props.style, backgroundColor: props.color }}
+    >
+      {props.children}
+    </animated.div>
+  );
 }
