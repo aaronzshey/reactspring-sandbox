@@ -8,7 +8,7 @@ export default function Page(
 ) {
   return (
     <animated.div
-      className="w-screen h-screen"
+      className="w-screen h-screen absolute"
       style={{ ...props.style }}
     ></animated.div>
   );
